@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace btl_se05
+namespace btl_se05.PresentationLayer
 {
     public partial class Form1 : Form
     {

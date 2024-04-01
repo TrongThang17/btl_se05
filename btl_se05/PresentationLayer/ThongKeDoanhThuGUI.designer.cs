@@ -1,4 +1,5 @@
-﻿namespace btl_se05
+﻿
+namespace btl_se05.PresentationLayer
 {
     partial class Form1
     {
@@ -37,4 +38,3 @@
         #endregion
     }
 }
-
