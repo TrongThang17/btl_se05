@@ -33,6 +33,7 @@ namespace btl_se05.PresentationLayer
         LoaiSanPhamBLL loaiSanPhamBLL = new LoaiSanPhamBLL();
         SanPhamBLL sanPhamBLL = new SanPhamBLL();
         string maSP = "";
+        string tenSPTest = "";
 
         public QuanLyKhoGUI()
         {
@@ -148,6 +149,7 @@ namespace btl_se05.PresentationLayer
 
             maSP = dgvSP.CurrentRow.Cells[0].Value.ToString();
             txtTenSP.Text = dgvSP.CurrentRow.Cells[1].Value.ToString();
+            tenSPTest = dgvSP.CurrentRow.Cells[1].Value.ToString();
             cmbNCC.Text = dgvSP.CurrentRow.Cells[2].Value.ToString();
             cmbLoaiSP.Text = dgvSP.CurrentRow.Cells[3].Value.ToString();
             txtDVT.Text = dgvSP.CurrentRow.Cells[4].Value.ToString();
@@ -165,7 +167,7 @@ namespace btl_se05.PresentationLayer
         {
             if (checkValidSanPham(sender, e))
             {
-                if (sanPhamBLL.checkExistsNameAndCategory(txtTenSP.Text, cmbLoaiSP.Text))
+                if (sanPhamBLL.checkExistsNameAndCategory(txtTenSP.Text, cmbLoaiSP.Text, tenSPTest))
                 {
                     if (sanPhamBLL.insert("SP" + convertDateToSecond(), txtTenSP.Text, txtDVT.Text, txtHanDung.Text, txtGiaBan.Text, cmbLoaiSP.SelectedValue.ToString(), cmbNCC.SelectedValue.ToString()))
                     {
@@ -190,7 +192,7 @@ namespace btl_se05.PresentationLayer
         {
             if (checkValidSanPham(sender, e))
             {
-                if (sanPhamBLL.checkExistsNameAndCategory(txtTenSP.Text, cmbLoaiSP.Text))
+                if (sanPhamBLL.checkExistsNameAndCategory(txtTenSP.Text, cmbLoaiSP.Text, tenSPTest))
                 {
                     if (sanPhamBLL.update(maSP, txtTenSP.Text, txtDVT.Text, txtHanDung.Text, txtGiaBan.Text, cmbLoaiSP.SelectedValue.ToString(), cmbNCC.SelectedValue.ToString()))
                     {
