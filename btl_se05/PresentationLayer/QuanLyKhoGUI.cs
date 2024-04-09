@@ -149,7 +149,8 @@ namespace btl_se05.PresentationLayer
 
             maSP = dgvSP.CurrentRow.Cells[0].Value.ToString();
             txtTenSP.Text = dgvSP.CurrentRow.Cells[1].Value.ToString();
-            tenSPTest = dgvSP.CurrentRow.Cells[1].Value.ToString();
+
+            tenSPTest = dgvSP.CurrentRow.Cells[1].Value.ToString(); 
             cmbNCC.Text = dgvSP.CurrentRow.Cells[2].Value.ToString();
             cmbLoaiSP.Text = dgvSP.CurrentRow.Cells[3].Value.ToString();
             txtDVT.Text = dgvSP.CurrentRow.Cells[4].Value.ToString();
