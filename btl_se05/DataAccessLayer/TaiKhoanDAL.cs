@@ -52,5 +52,26 @@ namespace btl_se05.DataAccessLayer
                 }
             }
         }
+
+        public bool createUser(string tenTK,string MK, string maQuyen)
+        {
+            using (SqlConnection cnn = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = cnn.CreateCommand())
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "sp_ThemTaiKhoan";
+                    cmd.Parameters.AddWithValue("@TenTK", tenTK);
+                    cmd.Parameters.AddWithValue("@sMK", MK);
+                    cmd.Parameters.AddWithValue("@sMaQuyen", maQuyen);
+                    cnn.Open();
+                    int i = cmd.ExecuteNonQuery();
+                    cnn.Close();
+
+                    return i > 0;
+                }
+            }
+        }
+
     }
 }

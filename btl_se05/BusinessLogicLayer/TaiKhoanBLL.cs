@@ -17,9 +17,9 @@ namespace btl_se05.BusinessLogicLayer
                 return 0; //Tên đăng nhập không tồn tại
             else
             {
-                if (String.Equals(dt.Rows[0]["Mật khẩu"].ToString(), matKhau))
+                if (String.Equals(dt.Rows[0]["sMK"].ToString(), matKhau))
                 {
-                    Program.setSession(dt.Rows[0]["Mã TK"].ToString(), dt.Rows[0]["Mã Quyền"].ToString(), dt.Rows[0]["Tên tài khoản"].ToString());
+                    Program.setSession(dt.Rows[0]["PK_sMaTk"].ToString(), dt.Rows[0]["FK_sMaQuyen"].ToString(), dt.Rows[0]["sTenTK"].ToString());
 
                     return 1;
                 } 
@@ -47,7 +47,7 @@ namespace btl_se05.BusinessLogicLayer
                 return false;
             }
 
-            if (checkingPasswordStrength(matKhau) < 4)
+            if (checkingPasswordStrength(matKhau) < 3)
             {
                 return false;
             }
@@ -55,13 +55,14 @@ namespace btl_se05.BusinessLogicLayer
             return taiKhoanDAL.changePassword(tenTK, matKhau);
         }
 
+        public bool createUser(string tenTk, string MK, string maQuyen)
+        {
+            return taiKhoanDAL.createUser(tenTk, MK, maQuyen);
+        }
+
         public int checkingPasswordStrength(string password)
         {
             int score = 0;
-
-            //Độ dài mật khẩu phải từ 8-20 ký tự
-            if (password.Length >= 8 && password.Length <= 20)
-                score++;
 
             //Check xem mật khẩu có số hay không
             if (Regex.IsMatch(password, @"[0-9]+(\.[0-9][0-9]?)?", RegexOptions.ECMAScript))   //number only //"^\d+$" if you need to match more than one digit.
@@ -81,5 +82,7 @@ namespace btl_se05.BusinessLogicLayer
 
             return score;
         }
+
+         
     }
 }

@@ -57,5 +57,11 @@ namespace btl_se05.PresentationLayer
                 }
             }
         }
+
+        private void llbDangKy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new DangKyGUI().Show();
+            this.Hide();
+        }
     }
 }

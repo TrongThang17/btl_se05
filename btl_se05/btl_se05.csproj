@@ -154,6 +154,12 @@
     <Compile Include="PresentationLayer\Custom\VBTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="PresentationLayer\DangKyGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\DangKyGUI.designer.cs">
+      <DependentUpon>DangKyGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\DangNhapGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\BaoCaoGUI.resx">
       <DependentUpon>BaoCaoGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\DangKyGUI.resx">
+      <DependentUpon>DangKyGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\DangNhapGUI.resx">
       <DependentUpon>DangNhapGUI.cs</DependentUpon>
