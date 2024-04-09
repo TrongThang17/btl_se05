@@ -73,7 +73,9 @@ namespace btl_se05.BusinessLogicLayer
                     String.Equals(dr["Loại"].ToString(), tenLoai, StringComparison.InvariantCultureIgnoreCase))
                     return false;
             }
-                return true;
+
+            return true;
+            
         }
 
         //public bool checkExistsNameAndCategoryForUpdate(string maSP, string tenSP, string tenLoai)
