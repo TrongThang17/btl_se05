@@ -60,18 +60,20 @@ namespace btl_se05.BusinessLogicLayer
             return sanPhamDAL.search(tenSP, donViTinh, hanDung, donGiaBan, tenLoai, tenNCC);
         }
 
-        public bool checkExistsNameAndCategory(string tenSP, string tenLoai)
+        public bool checkExistsNameAndCategory(string tenSP, string tenLoai, string tenSPTest)
         {
             DataTable dt = sanPhamDAL.findAll();
-
             foreach (DataRow dr in dt.Rows)
             {
-                if (String.Equals(dr["Tên SP"].ToString(), tenSP, StringComparison.InvariantCultureIgnoreCase) &&
+                if (tenSP.Equals(tenSPTest))
+                {
+                    return true;
+                }
+                else if (String.Equals(dr["Tên SP"].ToString(), tenSP, StringComparison.InvariantCultureIgnoreCase) &&
                     String.Equals(dr["Loại"].ToString(), tenLoai, StringComparison.InvariantCultureIgnoreCase))
                     return false;
             }
-
-            return true;
+                return true;
         }
 
         //public bool checkExistsNameAndCategoryForUpdate(string maSP, string tenSP, string tenLoai)
